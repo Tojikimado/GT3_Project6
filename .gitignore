@@ -72,9 +72,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-# XR-Interaction package internalized
-Assets/XR-Interaction/
-Assets/XR-Interaction.meta
-
-Library/*

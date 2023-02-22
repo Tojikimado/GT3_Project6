@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16c8335ca1c26441bfe854a731d1f57, type: 3}
+  m_Name: Crab Animations Data
+  m_EditorClassIdentifier: 
+  _Idle_Rest: Rest_1
+  _Idle_Fight: Fight_Idle_1
+  _Walk_Fast: Walk_Cycle_1
+  _Walk_Slow: Walk_Cycle_2
+  _Walk_Sneak: Sneak_Cycle_1
+  _Eat: Eat_Cycle_1
+  _Sleep: Sleep
+  _Intimidate_CloseUp: Intimidate_1
+  _Intimidate_Taunt: Intimidate_2
+  _Intimidate_Unbend: Intimidate_3
+  _Attack_LongArms: Attack_1
+  _Attack_LeftArm: Attack_2
+  _Attack_RightArm: Attack_3
+  _Attack_LargeArms: Attack_4
+  _Attack_HeadAttack: Attack_5
+  _TakeDamage_Left: Take_Damage_1
+  _TakeDamage_Right: Take_Damage_2
+  _TakeDamage_Stun: Take_Damage_3
+  _Death: Death

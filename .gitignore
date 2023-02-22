@@ -77,4 +77,4 @@ crashlytics-build.properties
 Assets/XR-Interaction/
 Assets/XR-Interaction.meta
 
-Library/PackageCache
+Library/*

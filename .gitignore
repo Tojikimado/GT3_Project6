@@ -76,3 +76,5 @@ crashlytics-build.properties
 # XR-Interaction package internalized
 Assets/XR-Interaction/
 Assets/XR-Interaction.meta
+
+Library/PackageCache

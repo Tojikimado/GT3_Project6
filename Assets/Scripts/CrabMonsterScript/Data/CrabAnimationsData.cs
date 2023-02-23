@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Resources;
-using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Data/CrabAnimations")]
+[CreateAssetMenu(menuName="Data/Crab/Animations")]
 public class CrabAnimationsData : ScriptableObject
 {
     [Header("Idle Animations")]

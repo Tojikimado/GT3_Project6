@@ -1,12 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class CrabAnimation : MonoBehaviour
 {
-    [SerializeField]
     private Animator _Animator;
 
+    [SerializeField]
+    private CrabAnimationsData _AnimationData;
+    public CrabAnimationsData AnimationsData { get { return _AnimationData; } }
+
     private string _CurrentState;
-    // Start is called before the first frame update
+
+
     private void Awake()
     {
         _Animator = GetComponent<Animator>();

@@ -15,9 +15,17 @@ public class CrabMovementData : ScriptableObject
     private float _TurnSpeed = 10f;
     public float TurnSpeed { get { return _TurnSpeed; } }
 
+    [Header("Acceleration")]
+    [SerializeField]
+    [Range(0.01f, 25f)]
+    private float _Acceleration = 0.5f;
+    public float Acceleration { get { return _Acceleration; } }
+
     [Header("Movement Precision")]
     [SerializeField]
     [Range(0.01f, 2f)]
     private float _DestinationRadius = 0.5f;
     public float DestinationRadius { get { return _DestinationRadius; } }
+
+
 }

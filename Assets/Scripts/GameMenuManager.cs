@@ -13,8 +13,6 @@ public class GameMenuManager : MonoBehaviour
     [SerializeField] private InputActionProperty showButton;
     [SerializeField] private Slider volumeSlider;
 
-    private bool _isActive = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +25,7 @@ public class GameMenuManager : MonoBehaviour
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
         if(showButton.action.WasPressedThisFrame())
         {
-            menu.SetActive(!gameObject.activeSelf);
-            //menu.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * distance;
+            menu.SetActive(!menu.gameObject.activeSelf);
         }
     }
 

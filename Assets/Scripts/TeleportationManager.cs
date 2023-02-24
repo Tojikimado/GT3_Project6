@@ -37,7 +37,7 @@ public class TeleportationManager : MonoBehaviour
         if (!_isActive)
             return;
 
-        if(_leftThumbstick.triggered /*|| _rightThumbstick.triggered*/)
+        if(_leftThumbstick.triggered)
             return;
 
         if (!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))

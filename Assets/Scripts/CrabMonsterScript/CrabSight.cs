@@ -16,16 +16,22 @@ public class CrabSight : MonoBehaviour
     private bool _PlayerIsInRange = false;
     public bool PlayerIsInRange { get { return _PlayerIsInRange; } }
 
-
+    private bool _PlayerIsInSight = false;
+    public bool PlayerIsInSight { get { return _PlayerIsInSight; } }
 
     private Transform _PlayerTransform;
     public Transform PlayerTransform { get { return _PlayerTransform; } }
 
     private HashSet<Transform> _Eatables = new HashSet<Transform>();
-    private HashSet<Transform> _PatrolPoints = new HashSet<Transform>();
+    public HashSet<Transform> Eatables { get { return _Eatables; } }
 
-    
+    private HashSet<Transform> _PatrolPoints = new HashSet<Transform>();
+    public HashSet<Transform> PatrolPoints { get { return _PatrolPoints; } }
+
+    private float _ReactionTimeCounter = 0f;
+
     public bool CanEat { get { return _Eatables.Count > 0; } }
+    public bool HasPatrolPoints { get { return _PatrolPoints.Count > 0; } }
 
     private void Awake()
     {
@@ -33,11 +39,18 @@ public class CrabSight : MonoBehaviour
         _SphereCollider.isTrigger=true;
         _SphereCollider.radius = _SightDatas.VisionRange;
     }
+
+    public void SetSightDatas(CrabSightData newSight)
+    {
+        _SightDatas = newSight;
+        _SphereCollider.radius = _SightDatas.VisionRange;
+    }
+
     private void Start()
     {
         _PlayerTransform = GameObject.FindGameObjectWithTag(_SightDatas.PlayerTag).transform;
     }
-    public bool IsPlayerInDirectSight()
+    private bool IsPlayerInDirectSight()
     {
         if (!_PlayerTransform) return false;
         RaycastHit Hit;
@@ -62,13 +75,23 @@ public class CrabSight : MonoBehaviour
         } else if (other.transform.CompareTag(_SightDatas.EatableTag)) {
             _Eatables.Add(other.transform);
         } else if (other.transform.CompareTag(_SightDatas.PatrolPointTag)) {
-            _Eatables.Add(other.transform);
+            _PatrolPoints.Add(other.transform);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        
+        _PlayerIsInSight = IsPlayerInDirectSight();
+        if (other.transform.CompareTag(_SightDatas.PlayerTag))
+        {
+            if (_PlayerIsInSight)
+                _ReactionTimeCounter += Time.fixedDeltaTime;
+        }
+    }
+
+    public bool HasCrabSeenThePlayer()
+    {
+        return _ReactionTimeCounter > _SightDatas.ReactionTime;
     }
 
     private void OnTriggerExit(Collider other)
@@ -76,15 +99,16 @@ public class CrabSight : MonoBehaviour
         if (other.transform.CompareTag(_SightDatas.PlayerTag))
         {
             _PlayerIsInRange = false;
+            _ReactionTimeCounter = 0;
         }
-        else if (other.transform.CompareTag(_SightDatas.EatableTag))
-        {
-            _Eatables.Remove(other.transform);
-        }
-        else if (other.transform.CompareTag(_SightDatas.PatrolPointTag))
-        {
-            _Eatables.Remove(other.transform);
-        }
+        //else if (other.transform.CompareTag(_SightDatas.EatableTag))
+        //{
+        //    _Eatables.Remove(other.transform);
+        //}
+        //else if (other.transform.CompareTag(_SightDatas.PatrolPointTag))
+        //{
+        //    _Eatables.Remove(other.transform);
+        //}
     }
     
 }

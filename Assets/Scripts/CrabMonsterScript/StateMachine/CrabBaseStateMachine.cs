@@ -2,21 +2,31 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [SelectionBase]
-[RequireComponent(typeof(NavMeshAgent), typeof(CrabAnimation))]
+[RequireComponent(typeof(NavMeshAgent), typeof(CrabAnimation), typeof(CrabSight))]
 public sealed class CrabBaseStateMachine : MonoBehaviour
 {
     [SerializeField] private CrabBaseState _State;
-
-    [HideInInspector] public NavMeshAgent NavMesh;
-    [HideInInspector] public CrabAnimation Animation;
+    [SerializeField] private CrabMovementData _MovementData;
+    [HideInInspector] public CrabSight m_Vision;
+    [HideInInspector] public NavMeshAgent m_NavMesh;
+    [HideInInspector] public CrabAnimation m_Animation;
 
     private float _TimeCounter = 0f;
     public float InStateTimeCounter { get { return _TimeCounter; } }
 
     private void Awake()
     {
-        NavMesh = GetComponent<NavMeshAgent>();
-        Animation = GetComponent<CrabAnimation>();
+        m_NavMesh = GetComponent<NavMeshAgent>();
+        m_Animation = GetComponent<CrabAnimation>();
+        m_Vision = GetComponent<CrabSight>();
+        SetMoveData(_MovementData);
+    }
+    public void SetMoveData(CrabMovementData newMovementsDatas)
+    {
+        _MovementData = newMovementsDatas;
+        m_NavMesh.acceleration = _MovementData.Acceleration;
+        m_NavMesh.angularSpeed = _MovementData.TurnSpeed;
+        m_NavMesh.speed = _MovementData.MoveSpeed;
     }
 
     private void Start()

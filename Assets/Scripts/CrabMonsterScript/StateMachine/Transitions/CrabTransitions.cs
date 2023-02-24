@@ -1,18 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
-public sealed class CrabTransitions : MonoBehaviour
+[CreateAssetMenu(menuName ="CrabSM/Transition")]
+public sealed class CrabTransitions : ScriptableObject
 {
-    public CrabDecision Decision;
-    public CrabBaseState TrueState;
-    public CrabBaseState FalseState;
+    [SerializeField]
+    private List<CrabDecision> _Decisions;
+    [SerializeField]
+    private bool _AllDecisionMustBeTrue = true;
+
+    [SerializeField]
+    private CrabBaseState TrueState;
+    [SerializeField]
+    private CrabBaseState FalseState;
 
     public void Execute(CrabBaseStateMachine CrabSM)
     {
-        if (Decision.Decide(CrabSM) && !(TrueState))
-            CrabSM.ChangeState(TrueState);
-        else if (true)
+        bool IsValidated = false;
+
+        foreach(CrabDecision Decision in _Decisions)
+        {
+            if (Decision.Decide(CrabSM))
+            {
+                IsValidated = true;
+                if (!_AllDecisionMustBeTrue)
+                    break;
+            } else
+            {
+                if (_AllDecisionMustBeTrue)
+                {
+                    IsValidated = false;
+                    break;
+                }
+            }
+        }
+        if (IsValidated)
+        {
+            if (TrueState != null)
+                CrabSM.ChangeState(TrueState);
+        }
+        else if (FalseState != null)
+        {
             CrabSM.ChangeState(FalseState);
+        }
     }
 }

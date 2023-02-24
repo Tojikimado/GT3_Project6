@@ -4,18 +4,22 @@ using UnityEngine.Accessibility;
 [CreateAssetMenu(menuName = "Data/Crab/Sight")]
 public class CrabSightData : ScriptableObject
 {
+    [Header("Tags")]
     [SerializeField]
     private string _PlayerTag = "GameController";
     public string PlayerTag { get { return _PlayerTag; } }
-
+    [SerializeField]
+    private string _EatableTag = "Eatable";
+    public string EatableTag { get { return _EatableTag; } }
+    [SerializeField]
+    private string _PatrolPointTag = "PatrolPoints";
+    public string PatrolPointTag { get { return _PatrolPointTag; } }
 
     [Header("Vision")]
     [SerializeField]
     [Range(2f, 25f)]
     private float _VisionRange = 15f;
     public float VisionRange { get { return _VisionRange; } }
-
-   
 
     [Header("Reaction time")]
     [SerializeField]

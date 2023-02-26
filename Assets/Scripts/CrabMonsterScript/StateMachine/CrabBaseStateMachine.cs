@@ -7,18 +7,21 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
 {
     [SerializeField] private CrabBaseState _State;
     [SerializeField] private CrabMovementData _MovementData;
+    public CrabMovementData m_MovementData { get { return _MovementData; } }
     [HideInInspector] public CrabSight m_Vision;
     [HideInInspector] public NavMeshAgent m_NavMesh;
     [HideInInspector] public CrabAnimation m_Animation;
+    [HideInInspector] public CrabAudioManager m_AudioManager;
 
     private float _TimeCounter = 0f;
-    public float InStateTimeCounter { get { return _TimeCounter; } }
+    public float TimeSinceInState { get { return _TimeCounter; } }
 
     private void Awake()
     {
         m_NavMesh = GetComponent<NavMeshAgent>();
         m_Animation = GetComponent<CrabAnimation>();
         m_Vision = GetComponent<CrabSight>();
+        m_AudioManager = GetComponent<CrabAudioManager>();
         SetMoveData(_MovementData);
     }
     public void SetMoveData(CrabMovementData newMovementsDatas)
@@ -27,11 +30,12 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
         m_NavMesh.acceleration = _MovementData.Acceleration;
         m_NavMesh.angularSpeed = _MovementData.TurnSpeed;
         m_NavMesh.speed = _MovementData.MoveSpeed;
+        m_NavMesh.stoppingDistance = _MovementData.DestinationRadius/2f;
     }
 
     private void Start()
     {
-        _State.OnEnterState(this);
+        _State?.OnEnterState(this);
     }
 
     public void ChangeState(CrabBaseState newState)
@@ -46,6 +50,7 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
     public void Update()
     {
         _TimeCounter += Time.deltaTime;
-        _State.PlayState(this);
+        
+        _State?.PlayState(this);
     }
 }

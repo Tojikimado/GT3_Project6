@@ -48,7 +48,8 @@ public class CrabSight : MonoBehaviour
 
     private void Start()
     {
-        _PlayerTransform = GameObject.FindGameObjectWithTag(_SightDatas.PlayerTag).transform;
+        var Pgo = GameObject.FindGameObjectWithTag(_SightDatas.PlayerTag);
+        _PlayerTransform = (Pgo != null) ? Pgo.transform : null;
     }
     private bool IsPlayerInDirectSight()
     {

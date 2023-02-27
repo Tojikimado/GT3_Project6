@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoEating : MonoBehaviour
+[CreateAssetMenu(menuName = "CrabSM/States/GoEating", fileName = "Go Eat")]
+public class GoEating : SimplePatrol
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void GetRandomPatrolPoint(CrabBaseStateMachine Machine)
     {
-        
+        if (Machine.m_Vision.Eatables.Count>=1)
+        {
+            int Index = Random.Range(0, Machine.m_Vision.Eatables.Count);
+            int counter = 0;
+            foreach (var Eatables in Machine.m_Vision.Eatables)
+            {
+                if (Index == counter)
+                {
+                    _PatrolPoint = Eatables;
+                    break;
+                }
+                counter++;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnRefreshPath(CrabBaseStateMachine Machine)
     {
-        
+        base.OnRefreshPath(Machine);
+    }
+
+    public override void OnEnterState(CrabBaseStateMachine Machine)
+    {
+        base.OnEnterState(Machine);
     }
 }

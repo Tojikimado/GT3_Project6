@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+[CreateAssetMenu(menuName = "CrabSM/States/Attack", fileName = "Simple Attack")]
+public class Attack : CrabBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnterState(CrabBaseStateMachine Machine)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.OnEnterState(Machine);
+        Machine.m_Animation.SetAnim(Machine.m_Animation.AnimationsData.GetRandomAttackAnim());
     }
 }

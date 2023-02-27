@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Taunted : MonoBehaviour
+[CreateAssetMenu(menuName = "CrabSM/States/Taunted", fileName = "Simple Taunt")]
+public class Taunted : CrabBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnterState(CrabBaseStateMachine Machine)
     {
-        
+        base.OnEnterState(Machine);
+        Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Intimidate_Taunt);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

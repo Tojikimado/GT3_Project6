@@ -11,6 +11,6 @@ public class TimerDecision : CrabDecision
 
     public override bool Decide(CrabBaseStateMachine state)
     {
-        return _MaximumStateDuraction > state.TimeSinceInState;
+        return _MaximumStateDuraction < state.TimeSinceInState;
     }
 }

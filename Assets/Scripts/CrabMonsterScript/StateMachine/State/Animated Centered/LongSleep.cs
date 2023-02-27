@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LongSleep : MonoBehaviour
+[CreateAssetMenu(menuName = "CrabSM/States/Sleep", fileName = "Simple Sleep")]
+public class LongSleep : CrabBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnterState(CrabBaseStateMachine Machine)
     {
-        
+        base.OnEnterState(Machine);
+        Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Sleep);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void OnExitState(CrabBaseStateMachine Machine)
     {
-        
+        base.OnExitState(Machine);
+        Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Intimidate_Taunt);
     }
 }

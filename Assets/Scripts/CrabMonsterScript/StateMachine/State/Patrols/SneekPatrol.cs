@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SneekPatrol : MonoBehaviour
+[CreateAssetMenu(menuName = "CrabSM/States/Sneek Patrol", fileName = "Sneek Patrol")]
+public class SneekPatrol : SimplePatrol
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void SetPatrolAnim(CrabBaseStateMachine Machine)
     {
-        
+        _PatrolAnim = Machine.m_Animation.AnimationsData.Walk_Sneak;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

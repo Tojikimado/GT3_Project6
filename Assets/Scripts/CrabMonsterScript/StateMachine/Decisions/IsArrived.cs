@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "CrabSM/Decisions/IsInRange", fileName = "IsInRange")]
+[CreateAssetMenu(menuName = "CrabSM/Decisions/IsArrived", fileName = "Is Arrived")]
 public class IsArrived : CrabDecision
 {
     public override bool Decide(CrabBaseStateMachine state)

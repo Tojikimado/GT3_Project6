@@ -19,7 +19,7 @@ public class CrabSight : MonoBehaviour
     private bool _PlayerIsInSight = false;
     public bool PlayerIsInSight { get { return _PlayerIsInSight; } }
 
-    private Transform _PlayerTransform;
+    private Transform _PlayerTransform = null;
     public Transform PlayerTransform { get { return _PlayerTransform; } }
 
     private HashSet<Transform> _Eatables = new HashSet<Transform>();

@@ -1,7 +1,6 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public class CrabAudioManager : MonoBehaviour
 {

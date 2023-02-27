@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be14ff20fbf0094faabbe907de0f6de, type: 3}
   m_Name: WalkSpeed
   m_EditorClassIdentifier: 
-  _MoveSpeed: 5
-  _TurnSpeed: 10
+  _MoveSpeed: 9
+  _TurnSpeed: 35
+  _Acceleration: 0.5
   _DestinationRadius: 0.65

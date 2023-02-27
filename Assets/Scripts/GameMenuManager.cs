@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class GameMenuManager : MonoBehaviour
 {
-    [SerializeField] private Transform head;
-    //[SerializeField] private Input
+    [SerializeField] private Transform leftHand;
     [SerializeField] private GameObject menu;
     [SerializeField] private InputActionProperty showButton;
     [SerializeField] private Slider volumeSlider;
@@ -23,7 +22,11 @@ public class GameMenuManager : MonoBehaviour
     void Update()
     {
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
-        if(showButton.action.WasPressedThisFrame())
+        if(showButton.action.WasPressedThisFrame() && (leftHand.eulerAngles.z > 40 && leftHand.eulerAngles.z < 140))
+        {
+            menu.SetActive(!menu.gameObject.activeSelf);
+        }
+        else if (menu.gameObject.activeSelf && (leftHand.eulerAngles.z < 40 || leftHand.eulerAngles.z > 140))
         {
             menu.SetActive(!menu.gameObject.activeSelf);
         }

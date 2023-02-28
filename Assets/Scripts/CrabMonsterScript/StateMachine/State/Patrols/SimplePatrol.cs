@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,7 +12,7 @@ public class SimplePatrol : CrabBaseState
 
     protected string _PatrolAnim;
 
-    protected virtual void GetRandomPatrolPoint(CrabBaseStateMachine Machine)
+    protected virtual void GetPatrolPoint(CrabBaseStateMachine Machine)
     {
         if (Machine.m_Vision.HasPatrolPoints)
         {
@@ -39,7 +37,8 @@ public class SimplePatrol : CrabBaseState
     protected virtual void OnDestinationArrived(CrabBaseStateMachine Machine)
     {
         Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Idle_Rest);
-        GetRandomPatrolPoint(Machine);
+        Machine.m_Vision.PatrolPoints.Remove(_PatrolPoint);
+        // GetPatrolPoint(Machine);
     }
     protected virtual void SetPatrolAnim(CrabBaseStateMachine Machine)
     {
@@ -50,7 +49,7 @@ public class SimplePatrol : CrabBaseState
     {
         base.OnEnterState(Machine);
         SetPatrolAnim(Machine);
-        GetRandomPatrolPoint(Machine);
+        GetPatrolPoint(Machine);
     }
     
 
@@ -60,7 +59,7 @@ public class SimplePatrol : CrabBaseState
         if (_PatrolPoint==null)
         {
             Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Idle_Rest);
-            GetRandomPatrolPoint(Machine);
+            GetPatrolPoint(Machine);
             return;
         }
         Machine.m_Animation.ChangeState(_PatrolAnim);
@@ -74,6 +73,7 @@ public class SimplePatrol : CrabBaseState
             }
         } else
         {
+            Debug.Log("Will found new path?");
             OnDestinationArrived(Machine);
         }
         base.PlayState(Machine);

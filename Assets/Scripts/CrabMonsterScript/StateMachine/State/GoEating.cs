@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "CrabSM/States/GoEating", fileName = "Go Eat")]
 public class GoEating : SimplePatrol
 {
-    protected override void GetRandomPatrolPoint(CrabBaseStateMachine Machine)
+    protected override void GetPatrolPoint(CrabBaseStateMachine Machine)
     {
         if (Machine.m_Vision.Eatables.Count>=1)
         {

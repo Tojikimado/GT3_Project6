@@ -6,7 +6,8 @@ using UnityEngine;
 public class Rikayon : MonoBehaviour {
 
     public Animator animator;
-
+    public FireBulletOnActivate fireBulletOnActivate;
+    public life m_life;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,4 +21,12 @@ public class Rikayon : MonoBehaviour {
         }
 
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (fireBulletOnActivate.bullet)
+        {
+          	m_life._life -= 1;
+        }
+	
+    }
 }

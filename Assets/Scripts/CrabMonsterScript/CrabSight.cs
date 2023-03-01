@@ -59,10 +59,10 @@ public class CrabSight : MonoBehaviour
         {
             if (Hit.transform.CompareTag(_SightDatas.PlayerTag))
             {
-                Debug.Log("Is in direct sight");
+                // Debug.Log("Is in direct sight");
                 return true;
             }
-            Debug.Log($"Hit : {Hit.transform.name}");
+            // Debug.Log($"Hit : {Hit.transform.name}");
             return false;
         }
         return false;

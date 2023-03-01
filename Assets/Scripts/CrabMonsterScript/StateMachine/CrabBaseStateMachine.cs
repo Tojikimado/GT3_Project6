@@ -17,6 +17,9 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
     private float _TimeCounter = 0f;
     public float TimeSinceInState { get { return _TimeCounter; } }
 
+    [SerializeField]
+    private bool _DebugPath;
+
     private void Awake()
     {
         m_NavMesh = GetComponent<NavMeshAgent>();
@@ -57,4 +60,25 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
         _State.PlayState(this);
         // Debug.Log(_State.ToString());
     }
+
+    private void OnDrawGizmos()
+    {
+        if(_DebugPath)
+        {
+            if (m_NavMesh == null) return;
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, transform.position + m_NavMesh.velocity);
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, transform.position + m_NavMesh.desiredVelocity);
+            Gizmos.color = Color.black;
+            NavMeshPath CrabPath = m_NavMesh.path;
+            Vector3 PreviousCorner = transform.position;
+            foreach(Vector3 Corner in CrabPath.corners) {
+                Gizmos.DrawLine(PreviousCorner, Corner);
+                Gizmos.DrawSphere(Corner, 0.1f);
+                PreviousCorner = Corner;
+            }
+        }
+    }
+
 }

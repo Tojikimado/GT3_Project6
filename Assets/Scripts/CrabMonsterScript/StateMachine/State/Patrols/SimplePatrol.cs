@@ -28,9 +28,11 @@ public class SimplePatrol : CrabBaseState
                 counter++;
             }
         }
+        OnRefreshPath(Machine);
     }
     protected virtual void OnRefreshPath(CrabBaseStateMachine Machine)
     {
+        if (_PatrolPoint == null) return;
         Machine.m_NavMesh.destination = _PatrolPoint.position;
         _RefreshTimeCounter = 0f;
     }
@@ -56,29 +58,33 @@ public class SimplePatrol : CrabBaseState
     public override void PlayState(CrabBaseStateMachine Machine)
     {
         _RefreshTimeCounter += Time.deltaTime;
+        
         if (_PatrolPoint==null)
         {
             Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Idle_Rest);
             GetPatrolPoint(Machine);
             return;
         }
+        
         Machine.m_Animation.ChangeState(_PatrolAnim);
-        if (_RefreshTimeCounter < _PathRefresh) return;
-        float Distance = (Machine.transform.position - _PatrolPoint.position).sqrMagnitude;
-        if (Distance > Machine.m_MovementData.DestinationRadius*Machine.m_MovementData.DestinationRadius)
-        {
-            if (Machine.m_NavMesh.pathStatus != NavMeshPathStatus.PathPartial)
-            {
-                OnRefreshPath(Machine);
-            }
-        } else
-        {
-            Debug.Log("Will found new path?");
-            OnDestinationArrived(Machine);
-        }
         base.PlayState(Machine);
+        if (_RefreshTimeCounter > _PathRefresh)
+        {
+            float Distance = (Machine.transform.position - _PatrolPoint.position).sqrMagnitude;
+            if (Distance > Machine.m_MovementData.DestinationRadius * Machine.m_MovementData.DestinationRadius)
+            {
+                if (Machine.m_NavMesh.pathStatus != NavMeshPathStatus.PathPartial)
+                {
+                    OnRefreshPath(Machine);
+                }
+            }
+            else
+            {
+                Debug.Log("Will found new path?");
+                // OnDestinationArrived(Machine);
+            }
+        }   
     }
-
 
     public override void OnExitState(CrabBaseStateMachine Machine)
     {

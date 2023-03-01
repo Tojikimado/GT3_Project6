@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baac3b42fb493094bbfc85c271c9ded5, type: 3}
-  m_Name: 1WaitTauntThenPatrol
+  m_Name: 1RandomPatrolOrChangeBehaviour
   m_EditorClassIdentifier: 
   _Decisions:
-  - {fileID: 11400000, guid: 646db3a2e04c3de4287aebdc6f4de618, type: 2}
+  - {fileID: 11400000, guid: 163c9d5def073eb40b304e468548b681, type: 2}
   _AllDecisionMustBeTrue: 1
-  TrueState: {fileID: 11400000, guid: e7429917fefd8ce43bd221753ab9c175, type: 2}
-  FalseState: {fileID: 0}
+  TrueState: {fileID: 11400000, guid: 95f45af22d653124784871150ef69ad3, type: 2}
+  FalseState: {fileID: 11400000, guid: 66850829120824f489c62472db2c81f7, type: 2}

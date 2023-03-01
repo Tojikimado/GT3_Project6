@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SneakSpeed
   m_EditorClassIdentifier: 
   _MoveSpeed: 2
-  _TurnSpeed: 7.3
-  _DestinationRadius: 0.65
+  _TurnSpeed: 150
+  _Acceleration: 2.1
+  _DestinationRadius: 0.61

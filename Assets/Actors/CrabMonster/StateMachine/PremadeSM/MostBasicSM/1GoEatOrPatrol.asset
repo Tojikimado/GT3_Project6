@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f0b90bf901e5442a0f547794cc91c5, type: 3}
-  m_Name: 1Eat
+  m_Script: {fileID: 11500000, guid: 025f686f654c7d94ebf8bd7f49eccc7c, type: 3}
+  m_Name: 1GoEatOrPatrol
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 11400000, guid: 7ebef0da15e8de646a694b1f0c0e0ef0, type: 2}
-  - {fileID: 11400000, guid: 6e82c2191d9281e4fa2f3ad262ebed41, type: 2}
-  _sightData: {fileID: 11400000, guid: 9a726a54b17531f49a6a635c6d166a38, type: 2}
+  - {fileID: 11400000, guid: dff2a087432a5ba47b3dcef67842aff4, type: 2}
+  _sightData: {fileID: 11400000, guid: d16674274913695458948cea5e330926, type: 2}
   _movementData: {fileID: 11400000, guid: edf0fd53883481c439a30f2be08d4f94, type: 2}
-  _EatingParticulesDelay: 1.37

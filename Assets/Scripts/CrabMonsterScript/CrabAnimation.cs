@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 [RequireComponent(typeof(Animator))]
 public class CrabAnimation : MonoBehaviour
@@ -20,11 +21,13 @@ public class CrabAnimation : MonoBehaviour
     public void ChangeState(string newState)
     {
         if (_CurrentState == newState) return;
+        
         SetAnim(newState);
     }
 
     public void SetAnim(string Animation)
     {
+        // Debug.Log("Setting Anim to " + Animation);
         _Animator.SetTrigger(Animation);
         _CurrentState = Animation;
     }

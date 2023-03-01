@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "CrabSM/States/Patrol", fileName = "Simple Patrol")]
+[CreateAssetMenu(menuName = "CrabSM/States/ClosestPatrol", fileName = "Closest Patrol")]
 public class ClosestPointPatrol : SimplePatrol
 {
     protected override void GetPatrolPoint(CrabBaseStateMachine Machine)
@@ -13,19 +13,20 @@ public class ClosestPointPatrol : SimplePatrol
             Transform TempTargetTransform = null;
             foreach (var point in Machine.m_Vision.PatrolPoints)
             {
+                if (_PatrolPoint == point) return;
                 float SqrTestedDistance = (point.position - Machine.transform.position).sqrMagnitude;
-                if (ShortestDistance < SqrTestedDistance)
+                // Debug.Log($"Testing {point.name}, with distance of {SqrTestedDistance} and Shortest distance being {ShortestDistance}");
+                if (ShortestDistance > SqrTestedDistance)
                 {
-                    if (SqrTestedDistance > Machine.m_MovementData.DestinationRadius* Machine.m_MovementData.DestinationRadius)
-                    {
-                        TempTargetTransform = point;
-                        ShortestDistance = SqrTestedDistance;
-                    }
+                    TempTargetTransform = point;
+                    ShortestDistance = SqrTestedDistance;
+                    //Debug.Log(TempTargetTransform);
                 }
             }
             if (TempTargetTransform != null)
                 _PatrolPoint = TempTargetTransform;
         }
+        OnRefreshPath(Machine);
     }
 
     protected override void OnDestinationArrived(CrabBaseStateMachine Machine)

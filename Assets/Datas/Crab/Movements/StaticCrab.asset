@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StaticCrab
   m_EditorClassIdentifier: 
   _MoveSpeed: 0
-  _TurnSpeed: 0
+  _TurnSpeed: 14.9
   _Acceleration: 0
   _DestinationRadius: 0.01

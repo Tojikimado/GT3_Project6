@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[CreateAssetMenu(menuName = "CrabSM/States/EmptyState", fileName = "EmptyState")]
 public class CrabBaseState : ScriptableObject
 {
     [SerializeField]

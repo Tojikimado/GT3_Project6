@@ -25,8 +25,14 @@ public class Seekingfor : SimplePatrol
 
     public override void PlayState(CrabBaseStateMachine Machine)
     {
+        
         _TauntingTimeCounter += Time.deltaTime;
-        if (_TauntingTimeCounter <= _TauntingTime) return;
+        if (_TauntingTimeCounter <= _TauntingTime)
+            Machine.m_NavMesh.destination = Machine.transform.position;
+        else
+        {
+            Machine.m_NavMesh.destination = _PatrolPoint.position;
+        }
         base.PlayState(Machine);
     }
 

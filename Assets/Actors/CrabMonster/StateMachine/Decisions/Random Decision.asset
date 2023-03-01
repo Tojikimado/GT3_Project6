@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be14ff20fbf0094faabbe907de0f6de, type: 3}
-  m_Name: ChaseSpeed
+  m_Script: {fileID: 11500000, guid: 1a42ed5ccf199b1489c1e6ec6735a5d4, type: 3}
+  m_Name: Random Decision
   m_EditorClassIdentifier: 
-  _MoveSpeed: 9
-  _TurnSpeed: 180
-  _Acceleration: 7
-  _DestinationRadius: 0.6

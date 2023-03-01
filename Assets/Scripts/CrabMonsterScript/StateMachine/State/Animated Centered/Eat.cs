@@ -18,6 +18,7 @@ public class Eat : CrabBaseState
     }
     public override void PlayState(CrabBaseStateMachine Machine)
     {
+        
         _TimeCounter += Time.deltaTime;
         if (_TimeCounter> _EatingParticulesDelay)
         {

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AttentiveWalk
   m_EditorClassIdentifier: 
   _MoveSpeed: 9
-  _TurnSpeed: 30
-  _Acceleration: 1
-  _DestinationRadius: 0.25
+  _TurnSpeed: 150.2
+  _Acceleration: 9
+  _DestinationRadius: 0.7

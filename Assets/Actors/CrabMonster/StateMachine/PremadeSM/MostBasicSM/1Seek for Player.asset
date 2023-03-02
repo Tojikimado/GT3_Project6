@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 11400000, guid: de4740564a8c5264bb4a3dd5d271393e, type: 2}
-  - {fileID: 11400000, guid: d56cbfa33549cd04fbb7cbc398eab2de, type: 2}
+  - {fileID: 11400000, guid: 69a5633ab26020a4298d2f84d31a86e1, type: 2}
   - {fileID: 11400000, guid: c0be663292687ed4ead021a2e975d81e, type: 2}
   _sightData: {fileID: 11400000, guid: dd9e7f84895b09440bb4c830eceec373, type: 2}
   _movementData: {fileID: 11400000, guid: 7aac695eb56709e4182f216509c31f1b, type: 2}
-  _PathRefresh: 0.7
+  _PathRefresh: 0.3
   _ClingFrequenceRatio: 1.83
-  _TauntingTime: 1.21
+  _TauntingTime: 3.25

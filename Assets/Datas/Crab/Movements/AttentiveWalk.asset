@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be14ff20fbf0094faabbe907de0f6de, type: 3}
   m_Name: AttentiveWalk
   m_EditorClassIdentifier: 
-  _MoveSpeed: 9
+  _MoveSpeed: 3.75
   _TurnSpeed: 150.2
-  _Acceleration: 9
+  _Acceleration: 3.5
   _DestinationRadius: 0.7

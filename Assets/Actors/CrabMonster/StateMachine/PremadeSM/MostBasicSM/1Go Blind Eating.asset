@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 1Go Blind Eating
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 11400000, guid: 7ebef0da15e8de646a694b1f0c0e0ef0, type: 2}
   - {fileID: 11400000, guid: 8fa445634066ac7459a7122aac990207, type: 2}
+  - {fileID: 11400000, guid: 7ebef0da15e8de646a694b1f0c0e0ef0, type: 2}
   _sightData: {fileID: 11400000, guid: 5f457f7121baec5479e4022b85be7b81, type: 2}
   _movementData: {fileID: 11400000, guid: ab9f2a4c359b51349afa67d4e9840a2d, type: 2}
   _PathRefresh: 1

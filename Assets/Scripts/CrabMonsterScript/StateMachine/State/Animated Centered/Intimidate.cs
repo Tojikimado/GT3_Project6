@@ -10,5 +10,12 @@ public class Intimidate : CrabBaseState
         base.OnEnterState(Machine);
         Machine.m_NavMesh.destination = Machine.transform.position;
         Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Intimidate_CloseUp);
+        Machine.m_AudioManager.PlayRandomIntimidateSound();
+    }
+    public override void OnExitState(CrabBaseStateMachine Machine)
+    {
+        base.OnExitState(Machine);
+        //Machine.m_NavMesh.destination = Machine.transform.position;
+        //Machine.m_Vision.Eatables.g
     }
 }

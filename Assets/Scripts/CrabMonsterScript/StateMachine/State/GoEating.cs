@@ -15,17 +15,14 @@ public class GoEating : SimplePatrol
             {
                 if (Index == counter)
                 {
+                    // Debug.Log("Setting Eatables");
                     _PatrolPoint = Eatables;
                     break;
                 }
                 counter++;
             }
         }
-    }
-
-    protected override void OnRefreshPath(CrabBaseStateMachine Machine)
-    {
-        base.OnRefreshPath(Machine);
+        OnRefreshPath(Machine);
     }
 
     public override void OnEnterState(CrabBaseStateMachine Machine)

@@ -14,5 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _angleDetection: 10
   _speedDetection: 0.1
-  _isMoving: 0
-  _timeSinceMoved: 0

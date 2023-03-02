@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be14ff20fbf0094faabbe907de0f6de, type: 3}
   m_Name: ChaseSpeed
   m_EditorClassIdentifier: 
-  _MoveSpeed: 7
+  _MoveSpeed: 6
   _TurnSpeed: 180
   _Acceleration: 5
   _DestinationRadius: 0.6

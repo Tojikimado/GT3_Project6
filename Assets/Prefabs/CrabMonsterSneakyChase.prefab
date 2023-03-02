@@ -4044,7 +4044,7 @@ GameObject:
   - component: {fileID: 8569760643514391092}
   - component: {fileID: 8569760643514391087}
   m_Layer: 6
-  m_Name: CrabMonsterEating
+  m_Name: CrabMonsterSneakyChase
   m_TagString: Crab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4081,7 +4081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc478d328186c34d8b9fc3ef09b8ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _State: {fileID: 11400000, guid: b0abbb1aad6faf946857b216641f4d6b, type: 2}
+  _State: {fileID: 11400000, guid: 74d4864a48ab73847b366ebdf308ea82, type: 2}
   _MovementData: {fileID: 11400000, guid: ab9f2a4c359b51349afa67d4e9840a2d, type: 2}
   _CrabDamage: 100
   _MaxLife: 100

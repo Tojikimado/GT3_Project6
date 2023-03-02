@@ -34,7 +34,7 @@ public class Seekingfor : SimplePatrol
 
     protected override void SetPatrolAnim(CrabBaseStateMachine Machine)
     {
-        _PatrolAnim = Machine.m_Animation.AnimationsData.Walk_Sneak;
+        _PatrolAnim = Machine.m_Animation.AnimationsData.Walk_Slow;
     }
 
     public override void PlayState(CrabBaseStateMachine Machine)
@@ -42,7 +42,11 @@ public class Seekingfor : SimplePatrol
         
         _TauntingTimeCounter += Time.deltaTime;
         if (_TauntingTimeCounter <= _TauntingTime)
-            Machine.m_NavMesh.destination = Machine.transform.position;
+        {
+            // Machine.m_NavMesh.destination = Machine.transform.position;
+            Machine.m_AudioManager.Play("Grunt");
+        }
+           
         base.PlayState(Machine);
     }
 

@@ -14,6 +14,7 @@ public class CrabAudioManager : MonoBehaviour
     [SerializeField] private float _SoundsEffectsMinDistance = 3f;
 
     private int _EatingSoundCounter = 0;
+    private int _IntimidateSoundCounter = 0;
 
     void Awake()
     {
@@ -34,7 +35,11 @@ public class CrabAudioManager : MonoBehaviour
                 _EatingSoundCounter++;
                 s.source.minDistance = _EatingMinDistance;
                 s.source.maxDistance = _EatingMaxDistance;
+            } else if (s.name.Contains("Intimidation"))
+            {
+                _IntimidateSoundCounter++;
             }
+
         }
     }
 
@@ -53,6 +58,11 @@ public class CrabAudioManager : MonoBehaviour
     {
         int index = UnityEngine.Random.Range(0, _EatingSoundCounter);
         Play("Eating" + index.ToString());
+    }
+    public void PlayRandomIntimidateSound()
+    {
+        int index = UnityEngine.Random.Range(0, _IntimidateSoundCounter);
+        Play("Intimidation" + index.ToString());
     }
 
     /// <summary>

@@ -8,6 +8,10 @@ public class CrabAudioManager : MonoBehaviour
     public Sounds[] sound;
 
     [SerializeField] private AudioData _audioData;
+    [SerializeField] private float _EatingMaxDistance = 10f;
+    [SerializeField] private float _EatingMinDistance = 1f;
+    [SerializeField] private float _SoundsEffectsMaxDistance = 16f;
+    [SerializeField] private float _SoundsEffectsMinDistance = 3f;
 
     private int _EatingSoundCounter = 0;
 
@@ -18,13 +22,19 @@ public class CrabAudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
+            s.source.minDistance = _SoundsEffectsMinDistance;
+            s.source.maxDistance = _SoundsEffectsMaxDistance;
+            s.source.spatialBlend = 1f;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.isPaused = false;
             if (s.name.Contains("Eating"))
+            {
                 _EatingSoundCounter++;
+                s.source.minDistance = _EatingMinDistance;
+                s.source.maxDistance = _EatingMaxDistance;
+            }
         }
     }
 

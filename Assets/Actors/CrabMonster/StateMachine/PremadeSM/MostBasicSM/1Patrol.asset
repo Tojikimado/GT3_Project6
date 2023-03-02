@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 11400000, guid: 58109a2ae16aafb4e9acc200ba3873ce, type: 2}
-  - {fileID: 11400000, guid: cc91f283d9b6f484188ef2b86d2a58d9, type: 2}
+  - {fileID: 11400000, guid: 70e3aa59b4c6517479e0559c1d2803df, type: 2}
   - {fileID: 11400000, guid: 9f686262451e96a4ea9d4b46a8c81826, type: 2}
   _sightData: {fileID: 11400000, guid: d16674274913695458948cea5e330926, type: 2}
   _movementData: {fileID: 11400000, guid: ab9f2a4c359b51349afa67d4e9840a2d, type: 2}
   _PathRefresh: 1
+  _ClingFrequenceRatio: 1.83

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1Taunt
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 11400000, guid: 675b34c2de8f7cc41a2450cad9f46063, type: 2}
+  - {fileID: 11400000, guid: 89a31f12e090e4a44bbf3adfa517ff78, type: 2}
+  - {fileID: 11400000, guid: 69a5633ab26020a4298d2f84d31a86e1, type: 2}
   _sightData: {fileID: 11400000, guid: dd9e7f84895b09440bb4c830eceec373, type: 2}
   _movementData: {fileID: 11400000, guid: edf0fd53883481c439a30f2be08d4f94, type: 2}

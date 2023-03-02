@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee337ef70297cd4c94bb2d26416a562, type: 3}
+  m_Name: 1Sneak Chase Player
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 11400000, guid: 7ebef0da15e8de646a694b1f0c0e0ef0, type: 2}
+  - {fileID: 11400000, guid: c0be663292687ed4ead021a2e975d81e, type: 2}
+  - {fileID: 11400000, guid: 69a5633ab26020a4298d2f84d31a86e1, type: 2}
+  _sightData: {fileID: 11400000, guid: dd9e7f84895b09440bb4c830eceec373, type: 2}
+  _movementData: {fileID: 11400000, guid: 04b04ce8866aa8c49a033ef7dde09638, type: 2}
+  _PathRefresh: 0.2
+  _ClingFrequenceRatio: 1.83

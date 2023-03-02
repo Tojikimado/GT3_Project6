@@ -22,7 +22,8 @@ public class CrabBaseState : ScriptableObject
     public virtual void PlayState(CrabBaseStateMachine Machine) {
         foreach (var transition in _transitions)
         {
-            transition.Execute(Machine);
+            if (transition != null) 
+                transition.Execute(Machine);
         }
     }
     public virtual void OnExitState(CrabBaseStateMachine Machine) {}

@@ -8,6 +8,7 @@ public class LongSleep : CrabBaseState
     public override void OnEnterState(CrabBaseStateMachine Machine)
     {
         base.OnEnterState(Machine);
+        Machine.m_NavMesh.destination = Machine.transform.position;
         Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Sleep);
     }
     public override void OnExitState(CrabBaseStateMachine Machine)

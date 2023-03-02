@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [SelectionBase]
-[RequireComponent(typeof(NavMeshAgent), typeof(CrabAnimation), typeof(CrabSight))]
-[RequireComponent(typeof(CrabAudioManager), typeof(CrabParticles))]
-public sealed class CrabBaseStateMachine : MonoBehaviour
+[RequireComponent(typeof(CrabAnimation), typeof(CrabSight), typeof(CrabParticles))]
+[RequireComponent(typeof(CrabAudioManager), typeof(NavMeshAgent), typeof(Rigidbody))]
+public sealed class CrabBaseStateMachine : MonoBehaviour, IDamageable
 {
     [SerializeField] private CrabBaseState _State;
     [SerializeField] private CrabMovementData _MovementData;
@@ -18,9 +18,29 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
     private float _TimeCounter = 0f;
     public float TimeSinceInState { get { return _TimeCounter; } }
 
+
+
+    #region Life Variables
+    [SerializeField]
+    private float _CrabDamage;
+    public float CrabDamage { get { return _CrabDamage; } }
+    [SerializeField]
+    private float _MaxLife = 100f;
+    private float _CurrentLife;
+    [SerializeField]
+    private CrabBaseState _DeathState;
+    [SerializeField]
+    private CrabBaseState _TakeDamageState;
+    [SerializeField]
+    private float _TakeDamageCooldown = 4;
+    private float _TakeDamageCooldownCounter;
+    #endregion
+    #region Debug
     [SerializeField]
     private bool _DebugPath;
-
+    [SerializeField]
+    private bool _DebugState;
+    #endregion
     private void Awake()
     {
         m_NavMesh = GetComponent<NavMeshAgent>();
@@ -29,6 +49,8 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
         m_AudioManager = GetComponent<CrabAudioManager>();
         m_CrabParticule = GetComponent<CrabParticles>();
         SetMoveData(_MovementData);
+        _CurrentLife = _MaxLife;
+        _TakeDamageCooldownCounter = _TakeDamageCooldown;
     }
     public void SetMoveData(CrabMovementData newMovementsDatas)
     {
@@ -50,13 +72,15 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
         _State.OnExitState(this);
         _TimeCounter = 0f;
         _State = newState;
-        Debug.Log($"Entering " + _State.ToString() + " State");
+        Debug.Log($"Entering " + _State.GetType().Name + " State");
         _State.OnEnterState(this);
 
     }
 
     public void Update()
     {
+        
+        _TakeDamageCooldownCounter += Time.deltaTime;
         _TimeCounter += Time.deltaTime;
         _State.PlayState(this);
         // Debug.Log(_State.ToString());
@@ -81,5 +105,29 @@ public sealed class CrabBaseStateMachine : MonoBehaviour
             }
         }
     }
+    #region Life-related Functions
+    public void TakeDamage(float DamageAmount)
+    {
+        _CurrentLife -= DamageAmount;
+        _CurrentLife = Mathf.Clamp(_CurrentLife, 0f, _MaxLife);
+        if (_CurrentLife == 0)
+        {
+            ChangeState(_DeathState);
+            enabled = false;
+            return;
+        }
+        if(_TakeDamageCooldownCounter>_TakeDamageCooldown)
+        {
+            ChangeState(_TakeDamageState);
+            _TakeDamageCooldownCounter = 0;
+        }
+        
+    }
+    public void Heal(float HealAmount)
+    {
+        _CurrentLife += HealAmount;
+        _CurrentLife = Mathf.Clamp(_CurrentLife, 0f, _MaxLife);
+    }
 
+    #endregion
 }

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Rikayon : MonoBehaviour {
 
+    private GameObject CrabMonster;
     public Animator animator;
     private FireBulletOnActivate fireBulletOnActivate;
-    private life m_life;
+   
 	// Use this for initialization
 	void Start () {
-		
+		CrabMonster = GameObject.Find("CrabMonster1");
 	}
 	
 	// Update is called once per frame
@@ -19,11 +20,6 @@ public class Rikayon : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) {
             animator.SetTrigger("Attack_1");
         }
-
 	}
-    private void OnTriggerEnter(Collider other)
-    {        
-         Debug.Log("oui");         
-         	
-    }
+  
 }

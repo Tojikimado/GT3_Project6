@@ -249,6 +249,20 @@ MonoBehaviour:
     m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   handAnimator: {fileID: 3194684}
+--- !u!64 &3194688
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3194683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &13203961
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,8 +558,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61179095}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.05, y: 0.82, z: -3.48}
+  m_LocalRotation: {x: -0, y: -0.42234448, z: -0, w: 0.9064354}
+  m_LocalPosition: {x: 2.27, y: 0.81999993, z: -1.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -553,7 +567,7 @@ Transform:
   - {fileID: 1427216864}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -49.965, z: 0}
 --- !u!1 &126127760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,7 +1747,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -2855,6 +2869,9 @@ MonoBehaviour:
     m_Reference: {fileID: 4646982610081084462, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   volumeSlider: {fileID: 1845481051}
+  continuousTurn: {fileID: 0}
+  snapTurn: {fileID: 0}
+  xrOrigin: {fileID: 0}
 --- !u!1001 &1354953745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3744,7 +3761,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c8d4a238a21559c428aaf935c114f3f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4429,7 +4446,7 @@ SphereCollider:
   m_GameObject: {fileID: 1700879268}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 3.980001, y: -1.9375999, z: 4.05}
@@ -4676,6 +4693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 2
+  CrabMonster: {fileID: 0}
 --- !u!1 &2116855609
 GameObject:
   m_ObjectHideFlags: 0

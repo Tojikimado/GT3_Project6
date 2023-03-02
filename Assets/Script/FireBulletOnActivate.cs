@@ -28,7 +28,13 @@ public class FireBulletOnActivate : MonoBehaviour
     spawnBullet.transform.position = spawnPoint.position;
     spawnBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
     Destroy(spawnBullet, 5);
+    } 
+
+    private void OnTriggerEnter (Collider other)
+    {
+        //other.transform.GetComponent<IDamageable>()?.TakeDamage(30f);
+        Destroy(this);
     }
 
-  
+    
 }

@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public enum Enigme
-	{
-		Button1,
-		Button2,
-		Button3,
-		Button4
-	}
+
 
 public class buttonFollowVisual : MonoBehaviour
 {
@@ -29,20 +23,10 @@ public class buttonFollowVisual : MonoBehaviour
     private bool isFollowing = false;
 
      private buttonFollowVisual bfv;
-    private GameObject ButtonRouge;
-    private GameObject ButtonBleu;
-    private GameObject ButtonVert;
-    private GameObject ButtonJaune; 
+
     // Start is called before the first frame update
     void Start()
     {
-
-        //ButtonRouge = GameObject.Find("Button Rouge");
-        ButtonBleu = GameObject.Find("Button Bleu");
-        ButtonVert = GameObject.Find("Button Vert");
-        ButtonJaune = GameObject.Find("Button Jaune");
-        ButtonRouge = GameObject.FindWithTag("Button1");
-
         initialLocalPos = visualTarget.localPosition;
 
         interctable = GetComponent<XRBaseInteractable>();
@@ -97,9 +81,6 @@ public class buttonFollowVisual : MonoBehaviour
        {
         visualTarget.localPosition = Vector3.Lerp(visualTarget.localPosition, initialLocalPos, Time.deltaTime * resetSpeed);
        }
-        if (SolutionCode == "1234")
-        {
-            Debug.Log("WIN");
-        }
+        
     }
 }

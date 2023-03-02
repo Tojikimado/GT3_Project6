@@ -10,7 +10,6 @@ public class passwordmanager : ScriptableObject
      public void test(string u)
     {
         solution += u;
-
            if (solution.Contains(RightSolution))
             {
                 Debug.Log("WIN");

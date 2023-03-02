@@ -8,6 +8,10 @@ public class ButtonPhysics : MonoBehaviour
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float deadZone = 0.025f;
 
+   
+[SerializeField]
+private passwordmanager passwordmanager;
+ 
     private bool _isPressed = false;
     private Vector3 _startPos;
     private ConfigurableJoint _joint;
@@ -16,17 +20,24 @@ public class ButtonPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
+
         _startPos = transform.localPosition;
         _joint = GetComponent<ConfigurableJoint>();
+        passwordmanager.Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if(!_isPressed && GetValue() + threshold >= 1)
             Pressed();
         if(_isPressed && GetValue()  - threshold <= 0)
             Released();
+            
+          
+          
     }
 
     private float GetValue()
@@ -49,4 +60,6 @@ public class ButtonPhysics : MonoBehaviour
         _isPressed = false;
         OnReleased.Invoke();
     }
+
+   
 }

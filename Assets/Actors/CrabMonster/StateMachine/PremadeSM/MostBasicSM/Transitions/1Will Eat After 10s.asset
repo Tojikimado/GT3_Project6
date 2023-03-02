@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baac3b42fb493094bbfc85c271c9ded5, type: 3}
-  m_Name: 1ChaseIfInSight
+  m_Name: 1Will Eat After 10s
   m_EditorClassIdentifier: 
   _Decisions:
-  - {fileID: 11400000, guid: 6525bf94dcdd05842ab338d8fb82895e, type: 2}
+  - {fileID: 11400000, guid: 20b9ef8abeefb8740bd06aea48cbfa19, type: 2}
+  - {fileID: 11400000, guid: ecf30b0da8ed03749bc27157b3dafbb7, type: 2}
   _AllDecisionMustBeTrue: 0
-  TrueState: {fileID: 11400000, guid: 9e7438fd84c8088418eafaf0001f5050, type: 2}
+  TrueState: {fileID: 11400000, guid: ac4ccc25acbf9c547af9d91fda4d7945, type: 2}
   FalseState: {fileID: 0}

@@ -13,6 +13,9 @@ public class CrabSight : MonoBehaviour
     [SerializeField]
     private Transform _SightOffset;
 
+    [SerializeField]
+    private LayerMask _NonCrabLayer;
+
     private bool _PlayerIsInRange = false;
     public bool PlayerIsInRange { get { return _PlayerIsInRange; } }
 
@@ -53,13 +56,16 @@ public class CrabSight : MonoBehaviour
     }
     private bool IsPlayerInDirectSight()
     {
+
+
+
         if (!_PlayerTransform) return false;
         RaycastHit Hit;
-        if (Physics.Raycast(_SightOffset.position, _PlayerTransform.position - _SightOffset.position, out Hit, Vector3.Distance(_SightOffset.position, _PlayerTransform.position)))
+        if (Physics.Raycast(_SightOffset.position, _PlayerTransform.position - _SightOffset.position, out Hit, Vector3.Distance(_SightOffset.position, _PlayerTransform.position), _NonCrabLayer))
         {
             if (Hit.transform.CompareTag(_SightDatas.PlayerTag))
             {
-                // Debug.Log("Is in direct sight");
+                //Debug.Log("Is in direct sight");
                 return true;
             }
             // Debug.Log($"Hit : {Hit.transform.name}");
@@ -82,11 +88,16 @@ public class CrabSight : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        //Debug.Log(_PlayerTransform);
         _PlayerIsInSight = IsPlayerInDirectSight();
         if (other.transform.CompareTag(_SightDatas.PlayerTag))
         {
             if (_PlayerIsInSight)
+            {
                 _ReactionTimeCounter += Time.fixedDeltaTime;
+                Debug.Log(_ReactionTimeCounter);
+            }
+                
         }
     }
 
@@ -111,5 +122,24 @@ public class CrabSight : MonoBehaviour
         //    _Eatables.Remove(other.transform);
         //}
     }
-    
+    private void OnDrawGizmos()
+    {
+        if (_PlayerTransform == null) return;
+        // Debug.Log("Tracing");
+        RaycastHit Hit;
+        if (Physics.Raycast(_SightOffset.position, (_PlayerTransform.position - _SightOffset.position).normalized, out Hit, (_SightOffset.position - _PlayerTransform.position).sqrMagnitude, _NonCrabLayer))
+        {
+            Debug.Log("Hit");
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(_SightOffset.position, Hit.point);
+        }
+        else
+        {
+            Gizmos.DrawLine(_SightOffset.position, (_PlayerTransform.position - _SightOffset.position).normalized  *(_SightOffset.position-_PlayerTransform.position).sqrMagnitude);
+        }
+    }
+    private void Update()
+    {
+        // Debug.Log(_PlayerIsInSight);
+    }
 }

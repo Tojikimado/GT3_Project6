@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _sightData: {fileID: 11400000, guid: dd9e7f84895b09440bb4c830eceec373, type: 2}
-  - _movementData: {fileID: 11400000, guid: 7aac695eb56709e4182f216509c31f1b, type: 2}
+  - _movementData: {fileID: 11400000, guid: 04b04ce8866aa8c49a033ef7dde09638, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

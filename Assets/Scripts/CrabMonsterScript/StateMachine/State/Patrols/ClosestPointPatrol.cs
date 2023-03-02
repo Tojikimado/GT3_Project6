@@ -5,6 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "CrabSM/States/ClosestPatrol", fileName = "Closest Patrol")]
 public class ClosestPointPatrol : SimplePatrol
 {
+    public override void OnEnterState(CrabBaseStateMachine Machine)
+    {
+        base.OnEnterState(Machine);
+        OnRefreshPath(Machine);
+    }
     protected override void GetPatrolPoint(CrabBaseStateMachine Machine)
     {
         if (Machine.m_Vision.HasPatrolPoints)
@@ -13,7 +18,8 @@ public class ClosestPointPatrol : SimplePatrol
             Transform TempTargetTransform = null;
             foreach (var point in Machine.m_Vision.PatrolPoints)
             {
-                if (_PatrolPoint == point) return;
+                if (_PatrolPoint == point)
+                    continue;
                 float SqrTestedDistance = (point.position - Machine.transform.position).sqrMagnitude;
                 // Debug.Log($"Testing {point.name}, with distance of {SqrTestedDistance} and Shortest distance being {ShortestDistance}");
                 if (ShortestDistance > SqrTestedDistance)

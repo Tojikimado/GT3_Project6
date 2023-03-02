@@ -14,6 +14,7 @@ public class Seekingfor : SimplePatrol
     {
         base.OnEnterState(Machine);
         Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Intimidate_Unbend);
+        _PatrolPoint = Machine.m_Vision.PlayerTransform;
     }
     protected override void OnDestinationArrived(CrabBaseStateMachine Machine)
     {
@@ -23,16 +24,25 @@ public class Seekingfor : SimplePatrol
         Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Intimidate_Unbend);
     }
 
+    protected override void GetPatrolPoint(CrabBaseStateMachine Machine)
+    {
+        if (Machine.m_Vision.PlayerTransform != null)
+        {
+            _PatrolPoint = Machine.m_Vision.PlayerTransform;
+        }
+    }
+
+    protected override void SetPatrolAnim(CrabBaseStateMachine Machine)
+    {
+        _PatrolAnim = Machine.m_Animation.AnimationsData.Walk_Sneak;
+    }
+
     public override void PlayState(CrabBaseStateMachine Machine)
     {
         
         _TauntingTimeCounter += Time.deltaTime;
         if (_TauntingTimeCounter <= _TauntingTime)
             Machine.m_NavMesh.destination = Machine.transform.position;
-        else
-        {
-            Machine.m_NavMesh.destination = _PatrolPoint.position;
-        }
         base.PlayState(Machine);
     }
 

@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 [SelectionBase]
 [RequireComponent(typeof(NavMeshAgent), typeof(CrabAnimation), typeof(CrabSight))]
+[RequireComponent(typeof(CrabAudioManager), typeof(CrabParticles))]
 public sealed class CrabBaseStateMachine : MonoBehaviour
 {
     [SerializeField] private CrabBaseState _State;

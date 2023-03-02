@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baac3b42fb493094bbfc85c271c9ded5, type: 3}
-  m_Name: 1Will Eat After 5s
+  m_Name: 1ClosestPointTransit
   m_EditorClassIdentifier: 
   _Decisions:
-  - {fileID: 11400000, guid: 20b9ef8abeefb8740bd06aea48cbfa19, type: 2}
-  - {fileID: 11400000, guid: 0e4e99f7e52501649953b35bbabe29d2, type: 2}
-  _AllDecisionMustBeTrue: 0
-  TrueState: {fileID: 11400000, guid: ac4ccc25acbf9c547af9d91fda4d7945, type: 2}
-  FalseState: {fileID: 0}
+  - {fileID: 11400000, guid: 163c9d5def073eb40b304e468548b681, type: 2}
+  _AllDecisionMustBeTrue: 1
+  TrueState: {fileID: 11400000, guid: 03062d6da44fb9a40953d3f12ff66367, type: 2}
+  FalseState: {fileID: 11400000, guid: 7f08396e813b51d41998a3aa8368a976, type: 2}

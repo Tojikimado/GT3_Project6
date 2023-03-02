@@ -17,7 +17,7 @@ public class CrabSightData : ScriptableObject
 
     [Header("Vision")]
     [SerializeField]
-    [Range(2f, 25f)]
+    [Range(2f, 60f)]
     private float _VisionRange = 15f;
     public float VisionRange { get { return _VisionRange; } }
 

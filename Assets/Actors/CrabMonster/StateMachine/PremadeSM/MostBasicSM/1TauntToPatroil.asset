@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d65959aab58a141b5fb98b118e9a1d, type: 3}
-  m_Name: 1Seek for Player
+  m_Script: {fileID: 11500000, guid: b6e5887d69830614cb77369bb6916adc, type: 3}
+  m_Name: 1TauntToPatroil
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 11400000, guid: 3e15df289a8b2ad479fbbae735666f93, type: 2}
-  - {fileID: 11400000, guid: 3297adb117c62a64f8867fa4281487dd, type: 2}
+  - {fileID: 11400000, guid: 675b34c2de8f7cc41a2450cad9f46063, type: 2}
   _sightData: {fileID: 11400000, guid: dd9e7f84895b09440bb4c830eceec373, type: 2}
-  _movementData: {fileID: 11400000, guid: 7aac695eb56709e4182f216509c31f1b, type: 2}
-  _PathRefresh: 0.7
-  _TauntingTime: 1.21
+  _movementData: {fileID: 11400000, guid: edf0fd53883481c439a30f2be08d4f94, type: 2}

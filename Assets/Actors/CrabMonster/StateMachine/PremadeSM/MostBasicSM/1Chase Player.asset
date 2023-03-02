@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 1Chase Player
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 11400000, guid: 3297adb117c62a64f8867fa4281487dd, type: 2}
-  - {fileID: 11400000, guid: 58109a2ae16aafb4e9acc200ba3873ce, type: 2}
+  - {fileID: 11400000, guid: c0be663292687ed4ead021a2e975d81e, type: 2}
+  - {fileID: 11400000, guid: e486438a7a01a9b46a6e5f41932ad3df, type: 2}
+  - {fileID: 11400000, guid: 96171c90d8e5af548ab14b59bd936161, type: 2}
   _sightData: {fileID: 11400000, guid: d16674274913695458948cea5e330926, type: 2}
   _movementData: {fileID: 11400000, guid: d2dbde663f10e5f4b9cfa1d3af66a4af, type: 2}
   _PathRefresh: 0.1
+  _ClingFrequenceRatio: 1.83

@@ -7,7 +7,8 @@ public class RandomDecision : CrabDecision
 {
     public override bool Decide(CrabBaseStateMachine state)
     {
-        return state.m_Vision.PlayerIsInSight;
+        return Random.Range(0, 2) == 1;
+        
     }
 }
 

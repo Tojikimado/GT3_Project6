@@ -15,5 +15,5 @@ MonoBehaviour:
   _PlayerTag: GameController
   _EatableTag: Eatable
   _PatrolPointTag: PatrolPoints
-  _VisionRange: 13.53
+  _VisionRange: 11.6
   _ReactionTime: 0.61

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 11400000, guid: 7ebef0da15e8de646a694b1f0c0e0ef0, type: 2}
-  - {fileID: 11400000, guid: 6e82c2191d9281e4fa2f3ad262ebed41, type: 2}
+  - {fileID: 11400000, guid: 69a5633ab26020a4298d2f84d31a86e1, type: 2}
   _sightData: {fileID: 11400000, guid: 9a726a54b17531f49a6a635c6d166a38, type: 2}
   _movementData: {fileID: 11400000, guid: edf0fd53883481c439a30f2be08d4f94, type: 2}
   _EatingParticulesDelay: 1.37

@@ -16,7 +16,7 @@ public class ChasePlayer : SimplePatrol
     {
         if (_PatrolPoint == null)
         {
-            _PatrolPoint= Machine.m_Vision.PlayerTransform;
+            _PatrolPoint=Machine.m_Vision.PlayerTransform;
         }
         base.PlayState(Machine);
     }

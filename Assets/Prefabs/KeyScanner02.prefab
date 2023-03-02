@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8910540229487240890}
   - component: {fileID: 2923979975124179523}
   - component: {fileID: 8677186899659847361}
+  - component: {fileID: 1597395346831229427}
   m_Layer: 0
   m_Name: KeyScanner02
   m_TagString: Untagged
@@ -30,8 +31,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5331819801074696362}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,48 +99,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 0}
   key: {fileID: 0}
---- !u!1 &5247803369792046886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5331819801074696362}
-  - component: {fileID: 8538205633332035991}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5331819801074696362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5247803369792046886}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000593, y: -0.000213, z: 0.001254}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 500919493005221004}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8538205633332035991
+--- !u!65 &1597395346831229427
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5247803369792046886}
+  m_GameObject: {fileID: 3506270318525410975}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0015121885, y: 0.0010987475, z: 0.00009573802}
-  m_Center: {x: -0.00018710457, y: 0.00004937399, z: -0.00045212999}
+  m_Size: {x: 0.0013154774, y: 0.0011239942, z: 0.000103714316}
+  m_Center: {x: 0.0005422567, y: -0.00015800196, z: 0.0007651103}

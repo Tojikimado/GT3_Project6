@@ -31,5 +31,6 @@ public class GoEating : SimplePatrol
     public override void OnEnterState(CrabBaseStateMachine Machine)
     {
         base.OnEnterState(Machine);
+        GetPatrolPoint(Machine);
     }
 }

@@ -12,6 +12,10 @@ public class SimplePatrol : CrabBaseState
 
     protected string _PatrolAnim;
 
+    [SerializeField]
+    protected float _ClingFrequenceRatio=1.83f;
+    protected float _ClingTimeCounter=0f;
+
     protected virtual void GetPatrolPoint(CrabBaseStateMachine Machine)
     {
         if (Machine.m_Vision.HasPatrolPoints)
@@ -52,6 +56,7 @@ public class SimplePatrol : CrabBaseState
         base.OnEnterState(Machine);
         SetPatrolAnim(Machine);
         GetPatrolPoint(Machine);
+        _ClingTimeCounter = 0f;
     }
     
 
@@ -65,7 +70,14 @@ public class SimplePatrol : CrabBaseState
             GetPatrolPoint(Machine);
             return;
         }
-        
+        _ClingTimeCounter += Time.deltaTime;
+        if (_ClingFrequenceRatio/Machine.m_MovementData.MoveSpeed < _ClingTimeCounter)
+        {
+            _ClingTimeCounter=0;
+            Machine.m_AudioManager.Play("Cling");
+        }
+
+
         Machine.m_Animation.ChangeState(_PatrolAnim);
         base.PlayState(Machine);
         if (_RefreshTimeCounter > _PathRefresh)

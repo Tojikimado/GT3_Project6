@@ -24,12 +24,5 @@ public class FireBulletOnActivate : MonoBehaviour
         Destroy(spawnBullet, 5);
     } 
 
-    private void OnTriggerEnter (Collider other)
-    {
-        if (other.CompareTag("Crab"))
-            other.transform.GetComponent<IDamageable>()?.TakeDamage(30f);
-        Destroy(this);
-    }
-
-    
+     
 }

@@ -30,4 +30,4 @@ MonoBehaviour:
   _TakeDamage_Left: Take_Damage_1
   _TakeDamage_Right: Take_Damage_2
   _TakeDamage_Stun: Take_Damage_3
-  _Death: Death
+  _Death: Die

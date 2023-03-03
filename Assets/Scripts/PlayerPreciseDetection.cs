@@ -49,7 +49,7 @@ public class PlayerPreciseDetection : MonoBehaviour
         RightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out tempRightVel);
         LeftControllerVelocity = tempLeftVel.magnitude;
         RightControllerVelocity = tempRightVel.magnitude;
-        Debug.Log($"Left:{LeftControllerVelocity}, Right:{RightControllerVelocity}");
+        // Debug.Log($"Left:{LeftControllerVelocity}, Right:{RightControllerVelocity}");
         if (LeftControllerVelocity > _PlayerMovementDetection.SpeedDetection)
         {
             _PlayerMovementDetection.SetIsMoving(true);

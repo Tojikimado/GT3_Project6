@@ -10,7 +10,13 @@ EditorBuildSettings:
     guid: 8cbb3f4c8e49af845b5cafb9fd59fa25
   - enabled: 1
     path: Assets/SciFiFacilitySector43/Scenes/SampleScene.unity
-    guid: 2869548909b5dc7458be98e9994445fe
+    guid: 81a45ff01d93d6d4d9d333304637ff55
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 2591799b4e1e21f4cb068b61af77174f
+  - enabled: 1
+    path: Assets/Scenes/LooseScene.unity
+    guid: 2e580d88ac4ce114ea9370cc205176be
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7a8f6ece9208acf4aaa3bca9ecd7d130,
       type: 2}

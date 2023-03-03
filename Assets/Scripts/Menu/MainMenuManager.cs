@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Transform head;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject settings;
+    [SerializeField] private GameObject intro;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
     [SerializeField] private ActionBasedSnapTurnProvider snapTurn;
@@ -37,6 +38,12 @@ public class MainMenuManager : MonoBehaviour
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
         transform.LookAt(new Vector3(head.position.x, transform.position.y, head.position.z));
         transform.forward *= -1;
+    }
+
+    public void ShowMenu()
+    {
+        intro.SetActive(false);
+        menu.SetActive(true);
     }
 
     public void Play()

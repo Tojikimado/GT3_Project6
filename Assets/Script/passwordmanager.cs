@@ -1,24 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Password", menuName = "Password Enigma")]
-public class passwordmanager : ScriptableObject
+
+public class PasswordManager : MonoBehaviour
 {
     private string solution;
-    [SerializeField]
-    private string RightSolution = "1234";
+    [SerializeField] private string RightSolution = "1234";
     [SerializeField] private Door door;
-     public void test(string u)
+
+    private void Start()
     {
-        solution += u;
-           if (solution.Contains(RightSolution))
-            {
-                Debug.Log("WIN");
-                door.OpenCloseDoor();
-            }
-              Debug.Log(solution);
+        ResetSolution();
     }
-    public void Reset() {
+
+    public void AddToSolution(string u)
+     {
+        if (solution.Length < 4)
+            solution += u;
+        else
+        {
+            ResetSolution();
+            solution += u;
+        }
+
+        if (solution.Length == 4 && solution.Contains(RightSolution) && !door.IsOpen)
+            door.OpenDoor();
+
+
+        Debug.Log(solution.Length);
+        Debug.Log(solution);
+        Debug.Log(RightSolution);
+        Debug.Log(solution.Contains(RightSolution));
+     }
+
+    public void ResetSolution()
+    {
         solution = "";
     }
 }

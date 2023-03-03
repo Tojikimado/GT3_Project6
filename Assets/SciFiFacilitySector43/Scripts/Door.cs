@@ -16,7 +16,7 @@ public class Door : MonoBehaviour {
     private float _OpenCloseTimer = float.PositiveInfinity;
     private bool _CanOpen { get { return _OpenCloseTimer>=_OpenCloseDelay; } }
 
-    private bool _IsOpen = false;
+    public bool IsOpen = false;
 
 	void Start() {
         animator = GetComponent<Animator>();
@@ -55,7 +55,7 @@ public class Door : MonoBehaviour {
         _OpenCloseTimer = 0f;
         audioSource.Play();
         animator.SetTrigger(trDoorOpen);
-        _IsOpen = true;
+        IsOpen = true;
     }
 
     public void CloseDoor()
@@ -64,7 +64,7 @@ public class Door : MonoBehaviour {
         _OpenCloseTimer = 0f;
         audioSource.Play();
         animator.SetTrigger(trDoorClose);
-        _IsOpen = false;
+        IsOpen = false;
     }
 
     public void OpenCloseDoor()
@@ -72,15 +72,15 @@ public class Door : MonoBehaviour {
         if (!_CanOpen) return;
         _OpenCloseTimer = 0f;
         audioSource.Play();
-        if(!_IsOpen)
+        if(!IsOpen)
         {
             animator.SetTrigger(trDoorOpen);
-            _IsOpen = true;
+            IsOpen = true;
         }
-        else if(_IsOpen)
+        else if(IsOpen)
         {
             animator.SetTrigger(trDoorClose);
-            _IsOpen = false;
+            IsOpen = false;
         }
     }
 }

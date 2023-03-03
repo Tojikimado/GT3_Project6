@@ -5524,6 +5524,7 @@ MonoBehaviour:
     type: 3}
   rayInteractor: {fileID: 124772733}
   provider: {fileID: 742809441}
+  reticule: {fileID: 0}
 --- !u!114 &742809441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5925,8 +5926,8 @@ GameObject:
   - component: {fileID: 766593015}
   - component: {fileID: 766593014}
   - component: {fileID: 766593013}
-  - component: {fileID: 766593012}
   - component: {fileID: 766593011}
+  - component: {fileID: 766593017}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5951,26 +5952,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &766593012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766593010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 338bece3cf9396747bb5f4daad72924f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 1193804375}
-  menu: {fileID: 0}
-  settings: {fileID: 0}
-  intro: {fileID: 0}
-  volumeSlider: {fileID: 0}
-  continuousTurn: {fileID: 742809444}
-  snapTurn: {fileID: 742809449}
-  xrOrigin: {fileID: 11400000, guid: 8beb95572f74a5c47b18867c6d9b0a75, type: 2}
 --- !u!114 &766593013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6057,6 +6038,18 @@ RectTransform:
   m_AnchoredPosition: {x: -66.08, y: 193.4849}
   m_SizeDelta: {x: 3577.711, y: 2418.9353}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &766593017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766593010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee10309f5583c884cbe57277a2d470f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &789733322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10700,9 +10693,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 766593012}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: ShowMenu
+      - m_Target: {fileID: 766593017}
+        m_TargetAssemblyTypeName: WinLooseMenuManager, Assembly-CSharp
+        m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11478,7 +11471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -15,6 +15,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 11400000, guid: 70e3aa59b4c6517479e0559c1d2803df, type: 2}
   - {fileID: 11400000, guid: 4ce72acbdc2600140aba2da6a1eee00a, type: 2}
+  - {fileID: 11400000, guid: 53a8d1151082b274aa1f7e1b1e6646fb, type: 2}
   _sightData: {fileID: 11400000, guid: d16674274913695458948cea5e330926, type: 2}
   _movementData: {fileID: 11400000, guid: ab9f2a4c359b51349afa67d4e9840a2d, type: 2}
   _PathRefresh: 1

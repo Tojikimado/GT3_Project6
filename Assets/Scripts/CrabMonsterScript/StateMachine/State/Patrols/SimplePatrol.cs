@@ -44,7 +44,7 @@ public class SimplePatrol : CrabBaseState
     {
         Machine.m_Animation.ChangeState(Machine.m_Animation.AnimationsData.Idle_Rest);
         Machine.m_Vision.PatrolPoints.Remove(_PatrolPoint);
-        // GetPatrolPoint(Machine);
+        GetPatrolPoint(Machine);
     }
     protected virtual void SetPatrolAnim(CrabBaseStateMachine Machine)
     {
@@ -92,9 +92,9 @@ public class SimplePatrol : CrabBaseState
             }
             else
             {
-                Debug.Log("Will found new path?");
-                GetPatrolPoint(Machine);
-                // OnDestinationArrived(Machine);
+                // Debug.Log("Will found new path?");
+                //GetPatrolPoint(Machine);
+                //OnDestinationArrived(Machine);
             }
         }   
     }

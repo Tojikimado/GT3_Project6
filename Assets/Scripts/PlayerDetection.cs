@@ -35,7 +35,7 @@ public class PlayerDetection : MonoBehaviour
             }
             tracker.UpdateTrackingPos();
         }
-        Debug.Log(_PlayerMovementDetection.IsMoving);
+        // Debug.Log(_PlayerMovementDetection.IsMoving);
     }
 }
 [System.Serializable]

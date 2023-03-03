@@ -45,6 +45,7 @@ public sealed class CrabSight : MonoBehaviour
     public PlayerMovementDetection PlayerMovements { get { return _PlayerMovements; } }
 
     #region Debug
+    [SerializeField]
     private bool _Debug;
     #endregion
 
@@ -130,7 +131,9 @@ public sealed class CrabSight : MonoBehaviour
         // Debug.Log(Physics.Raycast(_SightOffset.position, (_PlayerTransform.position - _SightOffset.position).normalized, out Hit, (_SightOffset.position - _PlayerTransform.position).sqrMagnitude, _NonCrabLayer));
         if (Physics.Raycast(_SightOffset.position, (_PlayerTransform.position - _SightOffset.position).normalized, out Hit, (_SightOffset.position - _PlayerTransform.position).sqrMagnitude, _NonCrabLayer))
         {
+            Gizmos.color = Color.blue;
             // Debug.Log("Hit");
+            Debug.Log(Hit.transform);
             if (Hit.transform.CompareTag(_SightDatas.PlayerTag))
                 Gizmos.color = Color.green;
             Gizmos.DrawLine(_SightOffset.position, Hit.point);

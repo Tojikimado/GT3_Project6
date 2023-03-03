@@ -4106,9 +4106,10 @@ MonoBehaviour:
   _SightOffset: {fileID: 1539840455133014845}
   _NonCrabLayer:
     serializedVersion: 2
-    m_Bits: 787
+    m_Bits: 769
   _AttackRange: 4
   _PlayerMovements: {fileID: 11400000, guid: 0322831cb3a543d49ac1fa67e81d2787, type: 2}
+  _Debug: 0
 --- !u!114 &8569760643514391090
 MonoBehaviour:
   m_ObjectHideFlags: 0

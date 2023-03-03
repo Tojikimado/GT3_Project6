@@ -4688,8 +4688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6e107b89a6be42a793c97897ef9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _life: 2
-  CrabMonster: {fileID: 0}
 --- !u!1 &2116855609
 GameObject:
   m_ObjectHideFlags: 0

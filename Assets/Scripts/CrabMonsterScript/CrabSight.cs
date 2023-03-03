@@ -103,9 +103,6 @@ public sealed class CrabSight : MonoBehaviour
             
         //}
     }
-
-    
-
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.CompareTag(_SightDatas.PlayerTag))

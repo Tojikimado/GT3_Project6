@@ -38,6 +38,9 @@ public class PlayerDetection : MonoBehaviour
         // Debug.Log(_PlayerMovementDetection.IsMoving);
     }
 }
+
+
+
 [System.Serializable]
 public struct TransformTracker
 {

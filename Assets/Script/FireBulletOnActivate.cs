@@ -32,7 +32,8 @@ public class FireBulletOnActivate : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        //other.transform.GetComponent<IDamageable>()?.TakeDamage(30f);
+        if (other.CompareTag("Crab"))
+            other.transform.GetComponent<IDamageable>()?.TakeDamage(30f);
         Destroy(this);
     }
 

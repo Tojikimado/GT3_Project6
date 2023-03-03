@@ -11,6 +11,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject intro;
+    [SerializeField] private GameObject controls;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
     [SerializeField] private ActionBasedSnapTurnProvider snapTurn;
@@ -40,9 +41,15 @@ public class MainMenuManager : MonoBehaviour
         transform.forward *= -1;
     }
 
-    public void ShowMenu()
+    public void ShowControls()
     {
         intro.SetActive(false);
+        controls.SetActive(true);
+    }
+
+    public void ShowMenu()
+    {
+        controls.SetActive(false);
         menu.SetActive(true);
     }
 

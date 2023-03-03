@@ -8,34 +8,34 @@ public class PlayerDetection : MonoBehaviour
     private List<TransformTracker> _TrackedElements;
     [SerializeField]
     private PlayerMovementDetection _PlayerMovementDetection;
-
     private void Start()
+    {
+        foreach (TransformTracker tracker in _TrackedElements)
+        {
+            tracker.UpdateTrackingPos();
+        }
+    }
+
+    private void Update()
     {
         bool HasMoved = false;
         foreach (TransformTracker tracker in _TrackedElements)
         {
             if (!HasMoved)
             {
-                if (Quaternion.Angle(tracker.PreviousRotation, tracker.TrackedTransform.rotation) > _PlayerMovementDetection.AngleDetection*Time.deltaTime)
+                if (Quaternion.Angle(tracker.PreviousRotation, tracker.TrackedTransform.rotation) > _PlayerMovementDetection.AngleDetection * Time.deltaTime)
                 {
-                    HasMoved=true;
+                    HasMoved = true;
                 }
-                if ((tracker.PreviousPosition - tracker.TrackedTransform.position).sqrMagnitude > _PlayerMovementDetection.SpeedDetection*_PlayerMovementDetection.SpeedDetection*Time.deltaTime)
+                if ((tracker.PreviousPosition - tracker.TrackedTransform.position).sqrMagnitude > _PlayerMovementDetection.SpeedDetection * _PlayerMovementDetection.SpeedDetection * Time.deltaTime)
                 {
-                    HasMoved=true;
+                    HasMoved = true;
                 }
                 _PlayerMovementDetection.SetIsMoving(HasMoved);
             }
-            tracker.Update();
+            tracker.UpdateTrackingPos();
         }
-    }
-
-    private void Update()
-    {
-        foreach (TransformTracker tracker in _TrackedElements)
-        {
-            tracker.Update();
-        }
+        Debug.Log(_PlayerMovementDetection.IsMoving);
     }
 }
 [System.Serializable]
@@ -47,7 +47,7 @@ public struct TransformTracker
     public Quaternion PreviousRotation;
     [HideInInspector]
     public Vector3 PreviousPosition;
-    public void Update()
+    public void UpdateTrackingPos()
     {
         if (TrackedTransform != null)
         {

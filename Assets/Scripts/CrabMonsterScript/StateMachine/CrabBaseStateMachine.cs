@@ -72,7 +72,8 @@ public sealed class CrabBaseStateMachine : MonoBehaviour, IDamageable
         _State.OnExitState(this);
         _TimeCounter = 0f;
         _State = newState;
-        Debug.Log($"Entering " + _State.GetType().Name + " State");
+        if(_DebugState)
+            Debug.Log($"Entering " + _State.GetType().Name + " State");
         _State.OnEnterState(this);
 
     }

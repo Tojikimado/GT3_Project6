@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc23a8ead8bd4bc4b8ea99d9953b292f, type: 3}
   m_Name: PMovementDetection
   m_EditorClassIdentifier: 
-  _angleDetection: 10
-  _speedDetection: 0.1
+  _angleDetection: 180
+  _speedDetection: 3

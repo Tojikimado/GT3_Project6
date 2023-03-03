@@ -93,6 +93,7 @@ public class SimplePatrol : CrabBaseState
             else
             {
                 Debug.Log("Will found new path?");
+                GetPatrolPoint(Machine);
                 // OnDestinationArrived(Machine);
             }
         }   

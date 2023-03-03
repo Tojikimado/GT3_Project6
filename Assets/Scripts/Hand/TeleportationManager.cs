@@ -10,6 +10,7 @@ public class TeleportationManager : MonoBehaviour
     [SerializeField] private InputActionAsset actionAsset;
     [SerializeField] private XRRayInteractor rayInteractor;
     [SerializeField] private TeleportationProvider provider;
+    [SerializeField] private GameObject reticule;
 
     private InputAction _leftThumbstick;
     private bool _isActive;
@@ -44,6 +45,7 @@ public class TeleportationManager : MonoBehaviour
         {
             rayInteractor.enabled = false;
             _isActive = false;
+            reticule.SetActive(false);
             return;
         }
 
@@ -55,17 +57,20 @@ public class TeleportationManager : MonoBehaviour
         provider.QueueTeleportRequest(request);
         rayInteractor.enabled = false;
         _isActive = false;
+        reticule.SetActive(false);
     }
 
     private void OnTeleportActivate(InputAction.CallbackContext context)
     {
         rayInteractor.enabled = true;
         _isActive = true;
+        reticule.SetActive(true);
     }
 
     private void OnTeleportCancel(InputAction.CallbackContext context)
     {
         rayInteractor.enabled = false;
         _isActive = false;
+        reticule.SetActive(false);
     }
 }

@@ -14,7 +14,7 @@ public class PlayerMovementDetection : ScriptableObject
     public float AngleDetection { get { return _angleDetection; } }
 
     [SerializeField]
-    [Range(0f, 1f)]
+    [Range(0f, 3f)]
     private float _speedDetection = 0.15f;
     public float SpeedDetection {get {return _speedDetection; }}
     private bool _isMoving = false;

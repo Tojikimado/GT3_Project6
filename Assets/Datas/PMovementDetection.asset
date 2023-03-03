@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PMovementDetection
   m_EditorClassIdentifier: 
   _angleDetection: 180
-  _speedDetection: 3
+  _speedDetection: 0.02
